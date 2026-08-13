@@ -1,0 +1,53 @@
+
+It refers to the ability of the same method, function, or operator to behave differently depending on the object or data type it is working with. This makes code flexible, reusable, and easier to maintain.
+
+In Python OOP, polymorphism is mainly seen in method overriding (runtime polymorphism) and operator overloading.
+
+
+
+Code:- 
+
+class vehicle:
+    def move(self):
+        print("vehicle move")
+
+class boat(vehicle):
+    def move(self):
+        print("boat sail in the ocean")
+
+class plane(vehicle):
+    def move(self):
+        print("plane fly in the sky")
+       # vehicle.move(self)
+       #  boat.move(self)
+
+obj=plane()
+obj.move()
+    
+s=boat()
+s.move()
+
+v=vehicle()
+v.move()
+
+
+2. Printing of method using object list
+
+
+class vehicle:
+    def move(self):
+        print("vehicle move in the road")
+
+class boat(vehicle):
+    def move(self):
+        print("boat sail in the ocean")
+
+class plane(vehicle):
+    def move(self):
+        print("plane fly in the sky")
+
+# object is storing the classes as the list
+
+obj=[plane(),boat(),vehicle()]
+for x in obj:
+    x.move()
