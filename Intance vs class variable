@@ -1,0 +1,98 @@
+Instance VARIBLAE   VS   CLASS / STATIC VARIABLE :-
+
+
+In python we dont have static keyword to declare the static variable.
+Instance  variables declared inside a class but outside any instance methods.(Defined in Usually inside __init__)
+Static/ class  variable it belongs to the class, not the instance.(Defined in Directly inside class body)
+
+In python class variables serve the same purpose.
+
+class items:
+    type="cloths"    # static variable defined
+print(items.type)
+obj=items()
+print(obj.type)
+items.type="cosmetics"    # it can be updated outside of the class
+obj2=items()
+print(obj2.type)
+
+
+
+## when we update the value of the static variable by the object of the clasS
+# it created a number of variable for that object , and object will  always has access to that variable , other object will access the static variable only
+
+
+1. It can also be updated by object 
+
+class items:
+    type="cloths"
+print(items.type)
+obj=items()
+obj.type="yoo"
+print(obj.type)
+
+
+STATIC METHOD:-
+
+A static method in Python is a method defined inside a class that does not depend on any instance or class data. It is used when a function logically belongs to a class but does not need access to self or cls. Static methods help organize related utility functions inside a class without creating objects.
+It behaves like a normal function but is logically grouped inside a class for better organization.
+Static method can be inheroted by child class
+
+
+class calculation:
+    @staticmethod
+    def sum(a,b):
+        return (a+b)
+
+    def sub(a,b):
+        return(a-b)
+
+print("Sum of a and b: ",calculation.sum(10,5))
+print("Sub of a and b: ",calculation.sub(10,5))
+
+
+# it is possible but it is not meant and it is decurased not to be used
+
+obj=calculation()
+print(obj.sum(10,8))
+
+
+2.  
+
+class Crun:
+    counter=0
+    @staticmethod
+    def increment():
+        Crun.counter+=1    # always call the static variable with the help of Class name
+        
+    @staticmethod    
+    def decrement():
+        Crun.counter-=1
+
+i=1
+while i<6:
+    Crun.increment()
+    i+=1
+
+k=1
+while k<3:
+    Crun.decrement()
+    k+=1
+
+print(Crun.counter)
+
+
+3. Method overridding in static method
+
+class p:
+    @staticmethod
+    def show():
+        print("yo")
+
+class q(p):
+    @staticmethod
+    def show():
+        print("hello")
+        p.show()
+
+q.show()
