@@ -1,0 +1,151 @@
+
+Inheritance is an Object-Oriented Programming (OOP) concept that allows one class (child/derived class) to acquire the properties and methods of another class (parent/base class).
+It promotes code reusability, extensibility, and maintainability.
+
+
+
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print(f"Name: {self.name}")
+
+# Child class inherits from Parent
+class Child(Parent):
+    def greet(self):
+        print(f"Hello, {self.name}!")
+
+# Example usage
+obj = Child("Alice")
+obj.display()  # Inherited method
+obj.greet()    # Child's own method
+
+
+
+Types of Inheritance in Python
+	1. Single Inheritance – One child inherits from one parent.
+	2. Multiple Inheritance – One child inherits from multiple parents.
+	3. Multilevel Inheritance – A child inherits from a parent, which itself inherits from another parent.
+	4. Hierarchical Inheritance – Multiple children inherit from the same parent.
+	5. Hybrid Inheritance – Combination of the above types.
+
+-----------------------------------------------------------------------------------
+
+
+SINGLE INHERITANCE:-
+
+class Person:
+    def __init__(self,fname,lname,mobile):
+        self.fname=fname
+        self.lname=lname
+        self.mobile=mobile
+
+    def prn_person(self):
+        print(self.fname)
+        print(self.lname)
+        print(self.mobile)
+
+class p2(Person):
+    pass
+
+obj  = p2("Kushagra","Yadav",9876543211)
+obj.prn_person()  
+
+
+## MULTILEVEL INHERITANCE
+
+
+class Person:
+    def __init__(self,fname,lname,mobile):
+        self.fname=fname
+        self.lname=lname
+        self.mobile=mobile
+
+    def prn_person(self):
+        print(self.fname)
+        print(self.lname)
+        print(self.mobile)
+
+class p2(Person):
+    pass
+
+class p3(p2):
+    def printhello(self):
+        print("hello there : ", self.fname)
+  
+obj  = p3("Kushagra","Yadav",9876543211)
+obj.prn_person()
+obj.printhello()
+  
+
+## MULTIPLE INHEITANCE : -
+
+class Father:
+    def skills(self):
+        print("Father: Gardening, Programming")
+
+class Mother:
+    def skills(self):
+        print("Mother: Cooking, Painting")
+
+# Child inherits from both Father and Mother
+class Child(Father, Mother):
+    def skills(self):
+        # Call parent methods explicitly
+        Father.skills(self)
+        Mother.skills(self)
+        print("Child: Dancing, Singing")
+
+c=Child()
+c.skills()
+
+
+###HIERARCHICAL INHERITANCE:-
+
+class Animal:
+   def __init__(self, name):
+	self.name = name
+
+   def speak(self):
+	pass
+
+class Dog(Animal):
+   def speak(self):
+	return f"{self.name} says Woof!"
+
+class Cat(Animal):
+   def speak(self):
+	return f"{self.name} says Meow!"
+
+# Usage
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+print(dog.speak())
+print(cat.speak())
+
+
+###HYBRID INHERITANCE:- 
+
+
+class Animal:
+    def print_animal(self): 
+        print("I am animal")
+
+class Mammal(Animal):
+    def birth_type(self):
+        print("It Gives birth")
+
+class Bird(Animal):
+    def lay_eggs(self):
+        print("It lays eggs")
+
+class Platypus(Bird,Mammal):
+    pass
+
+obj=Platypus()
+
+obj.print_animal()
+obj.birth_type()
+obj.lay_eggs()
+
