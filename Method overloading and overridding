@@ -1,0 +1,22 @@
+Method overriding
+
+It can only be done when inheritance is performed
+It is used to provide extraction
+Method overriding happens when a child class defines a method with the same name as a method in its parent class, allowing the child class to provide its own implementation.
+
+
+class A:
+    def show(self):
+        print("A")
+class b(A):
+    def show(self):
+        print("B")
+	A.show(self)  # to call the method of parent class
+	self.display() # to call method from same class
+    
+      def display(self):
+        print("class b")
+
+
+obj= b()
+obj.show()
