@@ -1,0 +1,76 @@
+Encapsulation in Python is an Object-Oriented Programming (OOP) concept where data (attributes) and methods (functions) are bundled together inside a class, and access to the data is controlled to protect it from unintended interference or misuse.
+
+It helps in:
+
+	Data hiding (restricting direct access to variables)
+	Better maintainability
+	Controlled access via getter/setter methods
+
+Key Points
+	Public Members – Accessible from anywhere.
+	Protected Members – Prefix with a single underscore _var (convention: should not be accessed directly outside the class).
+	Private Members – Prefix with double underscore __var (name mangling makes them harder to access directly).
+
+SYNTAX ::::
+
+class student:
+    def __init__(self):
+        self.__name=''
+        self.__mobile=0
+        self.__classname=''
+        self.__subject=''
+
+    def get_name(self):
+        return self.name
+    def set_name(self,name):
+        self.name=name
+
+    def get_mobile(self):
+        return self.mobile
+    def set_mobile(self,mobile):
+        self.mobile=mobile
+
+    def get_classname(self):
+        return self.classname
+    def set_classname(self,classname):
+        self.classname=classname
+
+    def get_subject(self):
+        return self.subject
+    def set_subject(self,subject):
+        self.subject=subject
+
+obj=student()
+obj.set_name("KUSH")
+obj.set_mobile(9876543211)
+obj.set_classname("BCA")
+obj.set_subject("Maths")
+
+print(obj.get_name())
+print(obj.get_mobile())
+print(obj.get_classname())
+print(obj.get_subject())
+
+
+2. 
+
+class cloths:
+    def __init__(self):
+        self.__cname="Cotton"
+
+    def get_cname(self):
+        return self.__cname
+    def set_cname(self,cname):
+        self.__cname=cname
+        
+class shirt(cloths):
+    def print_cloth_detail(self):
+        print(self.get_cname())
+
+obj= shirt()
+print(obj.print_cloth_detail())
+#ERROR : we cannot access the private method directly from child class to a parent class
+
+# so we use get and get
+obj.set_cname("silk")
+obj.print_cloth_detail()
